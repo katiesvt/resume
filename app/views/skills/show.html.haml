@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-md-12
+      %p#notice= notice
+
+      %p
+        %b Title:
+        = @skill.title
+      %p
+        %b Rating:
+        = @skill.rating
+  
+      %dl
+        - @skill.code_samples.each do |code_sample|
+          %dt
+            = code_sample.title
+            = link_to code_sample.link
+        
+
+      = link_to 'Edit', edit_skill_path(@skill)
+      \|
+      = link_to 'Back', skills_path

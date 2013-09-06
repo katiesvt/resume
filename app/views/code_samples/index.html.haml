@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-md-12
+      %h1 Listing code_samples
+
+      %table.table.table-condensed.table-striped
+        %thead
+          %th Title
+          %th Description
+          %th
+          %th
+          %th
+
+        - @code_samples.each do |code_sample|
+          %tr
+            %td= code_sample.title
+            %td= code_sample.description
+            %td= link_to 'Show', code_sample
+            %td= link_to 'Edit', edit_code_sample_path(code_sample)
+            %td= link_to 'Destroy', code_sample, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+      %br
+
+      = link_to 'New Code sample', new_code_sample_path

@@ -1,0 +1,27 @@
+= form_for @code_sample do |f|
+  - if @code_sample.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@code_sample.errors.count, "error")} prohibited this code_sample from being saved:"
+      %ul
+        - @code_sample.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :link
+    = f.text_field :link, class: 'form-control'
+  
+  .form-group
+    = f.label :code_language
+    = collection_select :code_sample, :code_language_id, CodeLanguage.all, :id, :name
+  
+  .form-group
+    = f.label :code
+    = f.text_area :code, class: 'form-control monospace'
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'

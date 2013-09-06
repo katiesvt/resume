@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-md-12
+      - if notice != nil
+        %p.alert.alert-info#notice= notice
+
+      %h1= @code_sample.title
+      
+      %p= @code_sample.description
+      
+      %p
+        %b Link:
+        = @code_sample.link
+      
+      .panel.panel-default
+        .panel-heading= @code_sample.code_language.name
+        .panel-body
+          %pre.prettyprint{ class: "lang-#{@code_sample.code_language.name}" }= @code_sample.code
+      
+      %hr
+
+      = link_to 'Edit', edit_code_sample_path(@code_sample)
+      \|
+      = link_to 'Back', code_samples_path
