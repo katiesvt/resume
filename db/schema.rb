@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906042915) do
+ActiveRecord::Schema.define(version: 20130907182725) do
 
   create_table "code_languages", force: true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130906042915) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "code_language_id"
+    t.string   "tagline"
   end
 
   add_index "code_samples", ["code_language_id"], name: "index_code_samples_on_code_language_id"

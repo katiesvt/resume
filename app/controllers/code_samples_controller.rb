@@ -58,7 +58,7 @@ class CodeSamplesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to code_samples_url }
       format.json { head :no_content }
-    end
+    end 
   end
 
   private
@@ -69,6 +69,14 @@ class CodeSamplesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_sample_params
-      params.require(:code_sample).permit(:title, :description, :link, :code)
+      params.require(:code_sample).permit(
+        :title,
+        :tagline,
+        :description, 
+        :link, 
+        :code, 
+        :code_language_id, 
+        :skill_ids => []
+      )
     end
 end

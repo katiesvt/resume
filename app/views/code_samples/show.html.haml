@@ -4,18 +4,22 @@
       - if notice != nil
         %p.alert.alert-info#notice= notice
 
-      %h1= @code_sample.title
+      .page-header
+        %h1= @code_sample.title
       
-      %p= @code_sample.description
+      %p.lead= @code_sample.tagline
+      
+      %p= simple_format @code_sample.description
       
       %p
         %b Link:
         = @code_sample.link
+      %p
+        %b= pluralize(@code_sample.skills.count, 'Skill') + ':'
+        - @code_sample.skills.each do |skill|
+          = skill.title + ','
       
-      .panel.panel-default
-        .panel-heading= @code_sample.code_language.name
-        .panel-body
-          %pre.prettyprint{ class: "lang-#{@code_sample.code_language.name}" }= @code_sample.code
+      %pre.scrollable.prettyprint{ class: "lang-#{@code_sample.code_language.name}" }= @code_sample.code
       
       %hr
 
