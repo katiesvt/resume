@@ -1,7 +1,23 @@
 .container
   .row
     .col-md-12
-      %h1 Listing code_samples
+      %h1 code samples
+
+      - @code_samples.each do |code_sample|
+        %h2= code_sample.title
+        
+        .row
+          .col-md-10
+            %p.lead= code_sample.tagline
+        
+            %p= truncate code_sample.description, length: 300, separator: ' '
+            
+          .col-md-2
+            .well.well-sm
+              %td= link_to 'Show', code_sample, class: 'btn btn-primary btn-block'
+              %td= link_to 'Edit', edit_code_sample_path(code_sample), class: 'btn btn-default btn-block'
+              %td= link_to 'Destroy', code_sample, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-block'
+        %hr
 
       %table.table.table-condensed.table-striped
         %thead
@@ -15,9 +31,6 @@
           %tr
             %td= code_sample.title
             %td= code_sample.description
-            %td= link_to 'Show', code_sample
-            %td= link_to 'Edit', edit_code_sample_path(code_sample)
-            %td= link_to 'Destroy', code_sample, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
       %br
 

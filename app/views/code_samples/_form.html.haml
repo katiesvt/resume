@@ -36,6 +36,6 @@
   .form-group
     = f.label :skills, class: 'col-sm-3 col-md-2 control-label'
     .col-sm-9.col-md-10
-      = f.collection_select :skill_ids, Skill.all, :id, :title, {}, {multiple: true, class: 'form-control'}
+      = f.collection_select :skill_ids, Skill.all, :id, :title, {}, { multiple: true, class: '' }
   .form-actions
     = f.submit 'Save', class: 'btn btn-primary'
