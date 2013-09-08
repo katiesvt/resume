@@ -17,8 +17,14 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'haml-rails'
 gem 'markdown'
-gem 'rspec-rails'
-gem 'capybara'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'fuubar'
+end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

@@ -9,13 +9,6 @@ describe StaticPagesController do
     end
   end
 
-  describe "GET 'skills'" do
-    it "returns http success" do
-      get 'skills'
-      response.should be_success
-    end
-  end
-
   describe "GET 'contact'" do
     it "returns http success" do
       get 'contact'
