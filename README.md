@@ -1,4 +1,4 @@
-== README
+# README
 
 This is from a couple years ago and was an exercise for me to get better with Rails.
 
